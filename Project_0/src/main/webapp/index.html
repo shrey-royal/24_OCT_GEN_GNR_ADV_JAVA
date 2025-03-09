@@ -3,9 +3,130 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Homepage</title>
+    <title>Home Page</title>    
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='lucide lucide-binary'><rect x='14' y='14' width='4' height='6' rx='2'/><rect x='6' y='4' width='4' height='6' rx='2'/><path d='M6 20h4'/><path d='M14 10h4'/><path d='M6 14h2v6'/><path d='M14 4h2v6'/></svg>" type="image/svg+xml">
+    <style>
+        /* Basic reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Background and layout */
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            color: #333;
+        }
+
+        /* Container for links */
+        .container {
+            text-align: center;
+            max-width: 600px;
+            padding: 20px;
+        }
+
+        /* Title styling */
+        h1 {
+            font-size: 2.5em;
+            color: #444;
+            margin-bottom: 20px;
+        }
+
+        /* Button styling */
+        .category-btn {
+            font-size: 1.1em;
+            padding: 10px 20px;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .category-btn:hover {
+            background-color: #333;
+            color: #fff;
+        }
+
+        /* Link styling */
+        .links {
+            display: none; /* Hidden by default */
+            margin-top: 20px;
+        }
+
+        a {
+            display: block;
+            font-size: 1.1em;
+            color: #333;
+            text-decoration: none;
+            padding: 8px 20px;
+            margin: 5px 0;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        /* Link hover effect */
+        a:hover {
+            color: #fff;
+            background-color: #333;
+        }
+
+        /* Footer style */
+        footer {
+            margin-top: 30px;
+            font-size: 0.9em;
+            color: #666;
+        }
+	</style>
 </head>
 <body>
-    <h1>Welcome to my first web-app</h1>
+    <div class="container">
+        <h1>Welcome to The Project Zero</h1>
+
+        <button class="category-btn" onclick="showLinks('basics')">Basics</button>
+        <button class="category-btn" onclick="showLinks('advanced')">Advanced</button>
+        <button class="category-btn" onclick="showLinks('jsp')">JSP</button>
+        
+        <div id="basics" class="links">
+            <a href="first" target="_blank">First_Http_Servlet</a>
+            <a href="html/form_0.html" target="_blank">Basic Parameter Passing</a>
+            <a href="html/taskForm.html" target="_blank">Task of Parameter Passing</a>
+            <a href="html/rd_login.html" target="_blank">Request Dispatcher -> Login</a>
+            <a href="redirect" target="_blank">RedirectServlet</a>
+            <a href="sconfig" target="_blank">Servlet Config</a>
+            <a href="attr1" target="_blank">Attributes</a>
+        </div>
+
+        <div id="advanced" class="links">
+            <a href="html/ckform.html" target="_blank">Cookies</a>
+            <a href="html/form_0.html" target="_blank">Hidden Form Field</a>
+            <a href="sess" target="_blank">Session</a>
+        </div>
+
+        <div id="jsp" class="links">
+            <a href="jsps/first.jsp" target="_blank">JSP</a>
+            <a href="jsps/de.jsp" target="_blank">Directive Elements</a>
+            <a href="jsps/jstl_1.jsp" target="_blank">JSTL</a>
+        </div>
+
+        <footer>Made with ❤️ by ChatGPT</footer>
+    </div>
+
+    <script>
+        function showLinks(category) {
+            // Hide all link sections
+            const linkSections = document.querySelectorAll('.links');
+            linkSections.forEach(section => section.style.display = 'none');
+
+            // Show the selected category
+            document.getElementById(category).style.display = 'block';
+        }
+    </script>
 </body>
 </html>

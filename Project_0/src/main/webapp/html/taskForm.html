@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complex HTML Form</title>
+</head>
+<body>
+    <form action="#" method="post">
+        <fieldset>
+            <legend>Personal Information</legend>
+            <label for="text">Text: </label>
+            <input type="text" id="text" name="text"><br>
+            
+            <label for="password">Password: </label>
+            <input type="password" id="password" name="password"><br>
+            
+            <label for="email">Email: </label>
+            <input type="email" id="email" name="email"><br>
+            
+            <label for="tel">Telephone: </label>
+            <input type="tel" id="tel" name="tel"><br>
+            
+            <label for="url">URL: </label>
+            <input type="url" id="url" name="url"><br>
+            
+            <label for="search">Search: </label>
+            <input type="search" id="search" name="search"><br>
+            
+            <label for="number">Number: </label>
+            <input type="number" id="number" name="number"><br>
+            
+            <label for="range">Range: </label>
+            <input type="range" id="range" name="range" min="0" max="100"><br>
+            
+            <label for="date">Date: </label>
+            <input type="date" id="date" name="date"><br>
+            
+            <label for="time">Time: </label>
+            <input type="time" id="time" name="time"><br>
+            
+            <label for="datetime-local">Datetime-Local: </label>
+            <input type="datetime-local" id="datetime-local" name="datetime-local"><br>
+        </fieldset>
+        
+        <fieldset>
+            <legend>Preferences</legend>
+            <label>Gender:</label>
+            <input type="radio" id="male" name="gender" value="male">
+            <label for="male">Male</label>
+            <input type="radio" id="female" name="gender" value="female">
+            <label for="female">Female</label>
+            <input type="radio" id="other" name="gender" value="other">
+            <label for="other">Other</label><br>
+            
+            <label for="color">Favorite Color: </label>
+            <input type="color" id="color" name="color"><br>
+            
+            <label for="checkbox">Subscribe: </label>
+            <input type="checkbox" id="checkbox" name="subscribe"><br>
+        </fieldset>
+        
+        <fieldset>
+            <legend>Other Inputs</legend>
+            <label for="month">Month: </label>
+            <input type="month" id="month" name="month"><br>
+            
+            <label for="week">Week: </label>
+            <input type="week" id="week" name="week"><br>
+            
+            <label for="hidden">Hidden Input: </label>
+            <input type="hidden" id="hidden" name="hidden" value="secret"><br>
+            
+            <label for="textarea">Message:</label>
+            <textarea id="textarea" name="textarea" rows="4" cols="30"></textarea><br>
+            
+            <label for="select">Choose an option:</label>
+            <select id="select" name="select">
+                <option value="option1">Option 1</option>
+                <option value="option2">Option 2</option>
+                <option value="option3">Option 3</option>
+            </select><br>
+        </fieldset>
+        
+        <input type="submit" value="Submit">
+        <input type="reset" value="Reset">
+    </form>
+</body>
+</html>
