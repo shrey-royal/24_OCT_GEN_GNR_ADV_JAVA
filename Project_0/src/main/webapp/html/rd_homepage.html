@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Minimal Homepage</title>
+  <style type="text/css">
+  	/* General reset */
+	* {
+	  margin: 0;
+	  padding: 0;
+	  box-sizing: border-box;
+	}
+	
+	/* Body and background */
+	body {
+	  font-family: 'Arial', sans-serif;
+	  background-color: #f4f4f4;
+	  color: #333;
+	  line-height: 1.6;
+	}
+	
+	/* Header Section */
+	header {
+	  display: flex;
+	  justify-content: space-between;
+	  align-items: center;
+	  padding: 20px 40px;
+	  background-color: #333;
+	  color: white;
+	}
+	
+	header .logo {
+	  font-size: 24px;
+	  font-weight: bold;
+	}
+	
+	header nav ul {
+	  display: flex;
+	  list-style: none;
+	}
+	
+	header nav ul li {
+	  margin-left: 20px;
+	}
+	
+	header nav ul li a {
+	  text-decoration: none;
+	  color: white;
+	  font-size: 16px;
+	  transition: color 0.3s;
+	}
+	
+	header nav ul li a:hover {
+	  color: #4CAF50;
+	}
+	
+	/* Hero Section */
+	.hero {
+	  height: 100vh;
+	  background: linear-gradient(to bottom right, #4CAF50, #8bc34a);
+	  display: flex;
+	  justify-content: center;
+	  align-items: center;
+	  color: white;
+	  text-align: center;
+	  padding: 0 20px;
+	}
+	
+	.hero .hero-content {
+	  max-width: 600px;
+	}
+	
+	.hero h1 {
+	  font-size: 50px;
+	  margin-bottom: 20px;
+	}
+	
+	.hero p {
+	  font-size: 18px;
+	  margin-bottom: 30px;
+	}
+	
+	.hero .cta-btn {
+	  background-color: white;
+	  color: #333;
+	  padding: 10px 30px;
+	  border-radius: 5px;
+	  text-decoration: none;
+	  font-weight: bold;
+	  transition: background-color 0.3s;
+	}
+	
+	.hero .cta-btn:hover {
+	  background-color: #333;
+	  color: white;
+	}
+	
+	/* About Section */
+	.about {
+	  background-color: white;
+	  padding: 80px 40px;
+	  text-align: center;
+	}
+	
+	.about h2 {
+	  font-size: 32px;
+	  margin-bottom: 20px;
+	}
+	
+	.about p {
+	  font-size: 18px;
+	  color: #555;
+	}
+	
+	/* Footer Section */
+	footer {
+	  text-align: center;
+	  padding: 20px;
+	  background-color: #333;
+	  color: white;
+	}
+	
+	footer p {
+	  font-size: 14px;
+	}
+  </style>
+</head>
+<body>
+  <!-- Header Section -->
+  <header>
+    <div class="logo">MinimalSite</div>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Welcome to MinimalSite</h1>
+      <p>Elegant design with simplicity at its core.</p>
+      <a href="#about" class="cta-btn">Learn More</a>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="about">
+    <h2>About Us</h2>
+    <p>We create sleek, minimalist designs that are user-friendly and modern.</p>
+  </section>
+
+  <!-- Footer Section -->
+  <footer>
+    <p>&copy; 2025 MinimalSite. All rights reserved.</p>
+  </footer>
+</body>
+</html>
