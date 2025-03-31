@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>    
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='lucide lucide-binary'><rect x='14' y='14' width='4' height='6' rx='2'/><rect x='6' y='4' width='4' height='6' rx='2'/><path d='M6 20h4'/><path d='M14 10h4'/><path d='M6 14h2v6'/><path d='M14 4h2v6'/></svg>" type="image/svg+xml">
+    <style>
+        /* Basic reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Background and layout */
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            color: #333;
+        }
+
+        /* Container for links */
+        .container {
+            text-align: center;
+            max-width: 600px;
+            padding: 20px;
+        }
+
+        /* Title styling */
+        h1 {
+            font-size: 2.5em;
+            color: #444;
+            margin-bottom: 20px;
+        }
+
+        /* Button styling */
+        .category-btn {
+            font-size: 1.1em;
+            padding: 10px 20px;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .category-btn:hover {
+            background-color: #333;
+            color: #fff;
+        }
+
+        /* Link styling */
+        .links {
+            display: none; /* Hidden by default */
+            margin-top: 20px;
+        }
+
+        a {
+            display: block;
+            font-size: 1.1em;
+            color: #333;
+            text-decoration: none;
+            padding: 8px 20px;
+            margin: 5px 0;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        /* Link hover effect */
+        a:hover {
+            color: #fff;
+            background-color: #333;
+        }
+
+        /* Footer style */
+        footer {
+            margin-top: 30px;
+            font-size: 0.9em;
+            color: #666;
+        }
+	</style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to The Project One</h1>
+
+        <button class="category-btn" onclick="showLinks('user')">User</button>
+        
+        <div id="user" class="links">
+            <a href="/Project_1/views/register.html">User Register</a>
+            <a href="/Project_1/views/list-users.jsp">List all Users</a>
+        </div>
+
+        <footer>Made with ❤️ by ChatGPT</footer>
+    </div>
+
+    <script>
+        function showLinks(category) {
+            // Hide all link sections
+            const linkSections = document.querySelectorAll('.links');
+            linkSections.forEach(section => section.style.display = 'none');
+
+            // Show the selected category
+            document.getElementById(category).style.display = 'block';
+        }
+    </script>
+</body>
+</html>
