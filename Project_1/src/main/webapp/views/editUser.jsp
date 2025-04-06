@@ -73,7 +73,7 @@
             UserBean user = (UserBean) request.getAttribute("user");
             if (user != null) {
         %>
-            <form action="updateUser" method="post">
+            <form action="/Project_1/updateUser" method="post">
                 <input type="hidden" name="id" value="<%= user.getId() %>" />
                 <label for="name">Name:</label>
                 <input type="text" id="name" name="name" value="<%= user.getName() %>" required />

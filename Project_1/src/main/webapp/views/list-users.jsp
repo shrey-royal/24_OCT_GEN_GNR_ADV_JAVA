@@ -7,10 +7,14 @@
 <head>
     <meta charset="UTF-8">
     <title>User List</title>
+    
+    <!-- Materialize CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
+
     <style>
-    	* {
-    		box-sizing: border-box;
-    	}
+        * {
+            box-sizing: border-box;
+        }
         body {
             font-family: Arial, sans-serif;
             background-color: #000;
@@ -58,50 +62,122 @@
         .btn:hover {
             opacity: 0.8;
         }
+        .search-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .search-container .input-field {
+            width: 60%;
+        }
+        #searchInput,
+        #userTable_info {
+        	color:white;
+        }
+        .search-container .select-wrapper {
+            width: 30%;
+        }
+        
+        #userTable_filter,
+		#userTable_length {
+		    display: none;
+		}
     </style>
+
+    <!-- DataTables CSS -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
+    
+    <!-- DataTables JS -->
+    <script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+
+    <!-- Materialize JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </head>
 <body>
     <div class="container">
         <h2>User List</h2>
-        <table>
-            <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Password</th>
-                <th>Action</th>
-            </tr>
-            <%
-            	UserDao dao = new UserDao();
-                ArrayList<UserBean> users = dao.getAllUsers();
-                if (users != null) {
-                    for (UserBean user : users) {
-            %>
-                        <tr>
-                            <td><%= user.getId() %></td>
-                            <td><%= user.getName() %></td>
-                            <td><%= user.getEmail() %></td>
-                            <td><%= user.getPassword() %></td>
-                            <td>
-                                <button class="btn edit-btn" onclick="editUser(<%= user.getId() %>)">Edit</button>
-                                <button class="btn delete-btn" onclick="deleteUser(<%= user.getId() %>)">Delete</button>
-                            </td>
-                        </tr>
-            <%
+        
+        <div class="search-container">
+            <div class="input-field">
+                <input id="searchInput" type="text">
+                <label for="searchInput">Search</label>
+            </div>
+            
+            <div class="select-wrapper">
+                <select id="entriesPerPage" class="browser-default">
+                    <option value="10" selected>10 entries</option>
+                    <option value="25">25 entries</option>
+                    <option value="50">50 entries</option>
+                </select>
+            </div>
+        </div>
+        
+        <!-- User Table -->
+        <table id="userTable">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Password</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <%
+                    UserDao dao = new UserDao();
+                    ArrayList<UserBean> users = dao.getAllUsers();
+                    if (users != null) {
+                        for (UserBean user : users) {
+                %>
+                            <tr>
+                                <td><%= user.getId() %></td>
+                                <td><%= user.getName() %></td>
+                                <td><%= user.getEmail() %></td>
+                                <td><%= user.getPassword() %></td>
+                                <td>
+                                    <button class="btn edit-btn" onclick="editUser(<%= user.getId() %>)">Edit</button>
+                                    <button class="btn delete-btn" onclick="deleteUser(<%= user.getId() %>)">Delete</button>
+                                </td>
+                            </tr>
+                <%
+                        }
+                    } else {
+                %>
+                    <tr><td colspan="5">No users found.</td></tr>
+                <%
                     }
-                } else {
-            %>
-                <tr><td colspan="5">No users found.</td></tr>
-            <%
-                }
-            %>
+                %>
+            </tbody>
         </table>
     </div>
 
     <script>
+        $(document).ready(function() {
+            var table = $('#userTable').DataTable({
+                "paging": true,
+                "searching": true,
+                "ordering": true,
+                "order": [[0, 'asc']],
+                "pageLength": 10
+            });
+
+            $('#searchInput').on('keyup', function() {
+                table.search(this.value).draw();
+            });
+
+            $('#entriesPerPage').on('change', function() {
+                var pageLength = parseInt(this.value);
+                table.page.len(pageLength).draw();
+            });
+        });
+
         function editUser(userId) {
             window.location.href = '/Project_1/editUser?id=' + userId;
         }
+
         function deleteUser(userId) {
             if (confirm('Are you sure you want to delete this user?')) {
                 window.location.href = '/Project_1/deleteUser?id=' + userId;

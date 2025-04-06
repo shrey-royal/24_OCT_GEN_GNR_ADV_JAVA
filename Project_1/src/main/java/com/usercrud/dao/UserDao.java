@@ -144,5 +144,34 @@ public class UserDao {
 		}
 		return status;
 	}
-	
+
+	public boolean deleteUser(int id) {
+		status = false;
+		try {
+			conn = DBConnection.getConnection();
+			query = "DELETE FROM users WHERE id = ?";
+			
+			pstmt = conn.prepareStatement(query);
+			pstmt.setInt(1, id);
+			
+			if (pstmt.executeUpdate() > 0) {
+				status = true;
+				System.out.printf("user with id(%d) deleted", id);
+			} else {
+				System.out.printf("failed to delete user with id(%d)", id);
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			query = null;
+			try {
+				pstmt.close();
+				conn.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return status;
+	}
 }
