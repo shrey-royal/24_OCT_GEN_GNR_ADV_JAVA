@@ -82,7 +82,7 @@
                 <input type="text" id="email" name="email" value="<%= user.getEmail() %>" required />
                 
                 <label for="password">Password:</label>
-                <input type="text" id="password" name="password" value="<%= user.getPassword() %>" required />
+                <input type="text" id="password" name="password" required />
                 
                 <input type="submit" value="Update User" />
             </form>

@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 import com.usercrud.bean.UserBean;
 import com.usercrud.util.DBConnection;
+import com.usercrud.util.HashClass;
 
 public class UserDao {
 	Connection conn;
@@ -26,7 +27,7 @@ public class UserDao {
 			pstmt = conn.prepareStatement(query);
 			pstmt.setString(1, user.getName());
 			pstmt.setString(2, user.getEmail());
-			pstmt.setString(3, user.getPassword());
+			pstmt.setString(3, HashClass.hashPassword(user.getPassword()));
 			
 			if (pstmt.executeUpdate() > 0) {
 				status = true;
@@ -93,8 +94,7 @@ public class UserDao {
 				user = new UserBean(
 							rs.getInt("id"),
 							rs.getString("name"),
-							rs.getString("email"),
-							rs.getString("password")
+							rs.getString("email")
 						);
 			}
 		} catch (Exception e) {
@@ -121,7 +121,7 @@ public class UserDao {
 			pstmt = conn.prepareStatement(query);
 			pstmt.setString(1, user.getName());
 			pstmt.setString(2, user.getEmail());
-			pstmt.setString(3, user.getPassword());
+			pstmt.setString(3, HashClass.hashPassword(user.getPassword()));
 			pstmt.setInt(4, user.getId());
 			
 			if (pstmt.executeUpdate() > 0) {

@@ -20,6 +20,13 @@ public class UserBean {
 		this.email = email;
 		this.password = password;
 	}
+	
+	public UserBean(int id, String name, String email) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.email = email;
+	}
 
 	public int getId() {
 		return id;
